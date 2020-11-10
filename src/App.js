@@ -1,5 +1,13 @@
+import './App.css';
 import React, { useState, useEffect } from "react";
-import facade from "./apiFacade";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Navbar from "./components/NavBar";
+import Home from "./components/Home"
+import Jokes from "./components/Jokes"
+import Quotes from "./components/Quotes"
+import NoMatch from "./components/NoMatch"
+import ManageJokes from "./components/ManageJokes"
+import facade from "./api/apiFacade";
 
 function LogIn({ login }) {
   const init = { username: "", password: "" };
@@ -28,7 +36,7 @@ function LogIn({ login }) {
   );
 }
 function LoggedIn() {
-  const [dataFromServer, setDataFromServer] = useState("Loading...");
+  const [dataFromServer, setDataFromServer] = useState("Venter spændt...");
 
   useEffect(() => {
     facade.fetchData().then((data) => setDataFromServer(data.msg));
@@ -36,7 +44,7 @@ function LoggedIn() {
 
   return (
     <div>
-      <h2>Data Received from server</h2>
+      <h2>Success velkommen!</h2>
       <h3>{dataFromServer}</h3>
     </div>
   );
@@ -44,25 +52,49 @@ function LoggedIn() {
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-
-  const logout = () => {
-    facade.logout();
-    setLoggedIn(false);
-  };
-  const login = (user, pass) => {
-    facade.login(user, pass).then((res) => setLoggedIn(true));
-  };
-
+  
+    const logout = () => {
+      facade.logout();
+      setLoggedIn(false);
+    };
+    const login = (user, pass) => {
+      facade.login(user, pass).then((res) => setLoggedIn(true));
+    };
+  
   return (
     <div>
-      {!loggedIn ? (
-        <LogIn login={login} />
-      ) : (
-        <div>
-          <LoggedIn />
-          <button onClick={logout}>Logout</button>
-        </div>
-      )}
+      <Router>
+        <Navbar
+          loginMsg={loggedIn ? "Logout" : "Login"}
+          isLoggedIn={loggedIn} />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/jokes">
+            <Jokes />
+          </Route>
+          <Route exact path="/quotes">
+            <Quotes />
+          </Route>
+          <Route path="/manage-jokes">
+          <ManageJokes />
+          </Route>
+          <Route path="/login-out">
+            {!loggedIn ? (
+          <LogIn login={login} />
+        ) : (
+          <div>
+            <LoggedIn />
+            <button onClick={logout}>Logout</button>
+          </div>
+        )}
+          </Route>
+          <Route path="*">
+            <NoMatch />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
