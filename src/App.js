@@ -1,10 +1,10 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import Home from "./pages/Home";
-import Jokes from "./pages/Jokes";
-import Quotes from "./pages/Quotes";
+import ApiCalls from "./pages/ApiCalls";
 import NoMatch from "./components/NoMatch";
 import ManageJokes from "./pages/ManageJokes";
 import facade from "./api/userFacade";
@@ -44,11 +44,8 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/jokes">
-            <Jokes />
-          </Route>
-          <Route exact path="/quotes">
-            <Quotes />
+          <Route exact path="/api-calls">
+            <ApiCalls />
           </Route>
           <Route path="/manage-jokes">
             <ManageJokes />
