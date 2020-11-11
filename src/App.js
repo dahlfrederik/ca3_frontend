@@ -27,7 +27,6 @@ function App() {
     const token = facade.getToken();
     const decodedToken = jwt_decode(token);
     setUser(decodedToken);
-    console.log(user);
   }, [loggedIn]);
 
   return (
@@ -57,7 +56,6 @@ function App() {
             ) : (
               <div>
                 <LoggedIn />
-
                 <button onClick={logout}>Logout</button>
               </div>
             )}
