@@ -7,7 +7,7 @@ function handleHttpErrors(res) {
   return res.json();
 }
 
-function apiFacade() {
+function userFacade() {
   /* Insert utility-methods from a latter step (d) here (REMEMBER to uncomment in the returned object when you do)*/
 
   const setToken = (token) => {
@@ -67,5 +67,5 @@ function apiFacade() {
     fetchData,
   };
 }
-const facade = apiFacade();
+const facade = userFacade();
 export default facade;

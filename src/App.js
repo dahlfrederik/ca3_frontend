@@ -2,13 +2,13 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
-import Home from "./components/Home";
-import Jokes from "./components/Jokes";
-import Quotes from "./components/Quotes";
+import Home from "./pages/Home";
+import Jokes from "./pages/Jokes";
+import Quotes from "./pages/Quotes";
 import NoMatch from "./components/NoMatch";
-import ManageJokes from "./components/ManageJokes";
-import facade from "./api/apiFacade";
-import { LogIn, LoggedIn } from "./components/Login";
+import ManageJokes from "./pages/ManageJokes";
+import facade from "./api/userFacade";
+import { LogIn, LoggedIn } from "./pages/Login";
 import jwt_decode from "jwt-decode";
 
 function App() {
