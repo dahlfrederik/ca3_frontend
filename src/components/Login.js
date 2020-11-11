@@ -39,16 +39,22 @@ export function LogIn({ login }) {
 }
 
 export function LoggedIn() {
-  const [dataFromServer, setDataFromServer] = useState("Venter spændt...");
+  const [dataFromServer, setDataFromServer] = useState("Waiting...");
 
   useEffect(() => {
     facade.fetchData().then((data) => setDataFromServer(data.msg));
   }, []);
 
   return (
-    <div>
-      <h2>Success velkommen!</h2>
-      <h3>{dataFromServer}</h3>
+    <div class="container-fluid padding">
+    <div class="row">
+    <div class="col-3"></div>
+        <div class="col-6 text-center">
+      <h2 className="text-center mt-5 mb-2">Success welcome!</h2>
+      <h3 className="text-center">{dataFromServer}</h3>
+      <div class="col-3"></div>
+      </div>
+      </div>
     </div>
   );
 }

@@ -57,9 +57,17 @@ function App() {
             {!loggedIn ? (
               <LogIn login={login} />
             ) : (
-              <div>
-                <LoggedIn />
-                <button onClick={logout}>Logout</button>
+              <div class="container-fluid padding">
+                <div class="row">
+                  <div class="col-3"></div>
+                  <div class="col-6 text-center">
+                    <LoggedIn />
+                    <button className="btn btn-primary" onClick={logout}>
+                      Logout
+                    </button>
+                  </div>
+                  <div class="col-3"></div>
+                </div>
               </div>
             )}
           </Route>
