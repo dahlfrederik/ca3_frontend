@@ -24,9 +24,12 @@ function App() {
   };
 
   useEffect(() => {
-    const token = facade.getToken();
-    const decodedToken = jwt_decode(token);
-    setUser(decodedToken);
+    if (loggedIn) {
+      const token = facade.getToken();
+      const decodedToken = jwt_decode(token);
+      setUser(decodedToken);
+      console.log(user);
+    }
   }, [loggedIn]);
 
   return (

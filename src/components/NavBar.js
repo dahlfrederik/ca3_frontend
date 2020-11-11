@@ -34,7 +34,9 @@ function NavBar({ loginMsg, isLoggedIn, user }) {
           {loginMsg}
         </NavLink>
       </li>
-      <li>{user.username}</li>
+      <li>
+        <p>{user.username}</p>
+      </li>
     </ul>
   );
 }
