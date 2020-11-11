@@ -6,7 +6,7 @@ import Navbar from "./components/NavBar";
 import Home from "./pages/Home";
 import ApiCalls from "./pages/ApiCalls";
 import NoMatch from "./components/NoMatch";
-import ManageJokes from "./pages/ManageJokes";
+import ManageUsers from "./pages/ManageUsers";
 import facade from "./api/userFacade";
 import { LogIn, LoggedIn } from "./pages/Login";
 import jwt_decode from "jwt-decode";
@@ -47,23 +47,23 @@ function App() {
           <Route exact path="/api-calls">
             <ApiCalls />
           </Route>
-          <Route path="/manage-jokes">
-            <ManageJokes />
+          <Route path="/manage-users">
+            <ManageUsers />
           </Route>
           <Route path="/login-out">
             {!loggedIn ? (
               <LogIn login={login} />
             ) : (
-              <div class="container-fluid padding">
-                <div class="row">
-                  <div class="col-3"></div>
-                  <div class="col-6 text-center">
+              <div className="container-fluid padding">
+                <div className="row">
+                  <div className="col-3"></div>
+                  <div className="col-6 text-center">
                     <LoggedIn />
                     <button className="btn btn-primary" onClick={logout}>
                       Logout
                     </button>
                   </div>
-                  <div class="col-3"></div>
+                  <div className="col-3"></div>
                 </div>
               </div>
             )}

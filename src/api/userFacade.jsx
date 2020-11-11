@@ -1,4 +1,4 @@
-const URL = "http://dachma.dk/ca3_Backend";
+import SERVER_URL from "../util/Settings";
 
 function handleHttpErrors(res) {
   if (!res.ok) {
@@ -29,7 +29,7 @@ function userFacade() {
       username: user,
       password: password,
     });
-    return fetch(URL + "/api/login", options)
+    return fetch(SERVER_URL + "/api/login", options)
       .then(handleHttpErrors)
       .then((res) => {
         setToken(res.token);
@@ -38,7 +38,7 @@ function userFacade() {
 
   const fetchData = () => {
     const options = makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+    return fetch(SERVER_URL + "/api/info/user", options).then(handleHttpErrors);
   };
 
   const makeOptions = (method, addToken, body) => {
