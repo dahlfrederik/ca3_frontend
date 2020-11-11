@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.css';
 import facade from "../api/apiFacade";
 
 
@@ -18,13 +19,21 @@ export function LogIn({ login }) {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div class="container-fluid padding">
+    <div class="row">
+    <div class="col-3"></div>
+        <div class="col-6 text-center">
+      <h2 className="text-center mb-2 mt-5">Login</h2>
       <form onChange={onChange}>
-        <input placeholder="User Name" id="username" />
-        <input placeholder="Password" id="password" />
-        <button onClick={performLogin}>Login</button>
+        <input className="mb-2" placeholder="User Name" id="username" />
+        <br/>
+        <input className="mb-2" placeholder="Password" id="password" />
+        <br/>
+        <button className="btn btn-primary" onClick={performLogin}>Login</button>
       </form>
+      <div class="col-3"></div>
+      </div>
+      </div>
     </div>
   );
 }
