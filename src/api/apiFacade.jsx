@@ -1,4 +1,4 @@
-const URL = "http://localhost:8080/jpareststarter";
+const URL = "http://dachma.dk/ca3_Backend";
 
 function handleHttpErrors(res) {
   if (!res.ok) {
