@@ -36,6 +36,16 @@ function userFacade() {
       });
   };
 
+  function addUser (user,password){
+    const options = makeOptions("POST", true, {
+      userName: user,
+      userPass: password,
+    });
+    return fetch(SERVER_URL+ "/api/info" ,options)
+    .then(handleHttpErrors)
+
+}
+
   const fetchData = () => {
     const options = makeOptions("GET", true); //True add's the token
     return fetch(SERVER_URL + "/api/info/user", options).then(handleHttpErrors);
@@ -65,6 +75,7 @@ function userFacade() {
     login,
     logout,
     fetchData,
+    addUser,
   };
 }
 const facade = userFacade();

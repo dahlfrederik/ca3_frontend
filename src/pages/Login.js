@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import facade from "../api/userFacade";
+import CreateModal from "../components/RegisterUser";
 
 export function LogIn({ login }) {
   const init = { username: "", password: "" };
@@ -31,6 +32,7 @@ export function LogIn({ login }) {
             <button className="btn btn-primary" onClick={performLogin}>
               Login
             </button>
+            <CreateModal />
           </form>
           <div className="col-3"></div>
         </div>
