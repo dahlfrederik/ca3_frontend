@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import Home from "./pages/Home";
 import ApiCalls from "./pages/ApiCalls";
@@ -32,6 +32,17 @@ function App() {
     }
   }, [loggedIn]);
 
+  
+function PrivateRoute ({children, ...rest}) {
+  return (
+    <Route {...rest} render={() => {
+      return loggedIn === true 
+      ? children 
+      :<Redirect to ='/login-out' />
+    }} />
+  )
+}
+
   return (
     <div>
       <Router>
@@ -45,11 +56,11 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/api-calls">
-            <ApiCalls />
+            <ApiCalls isLoggedIn={loggedIn} />
           </Route>
-          <Route path="/secure-page">
+          <PrivateRoute path="/secure-page">
             <SecurePage />
-          </Route>
+          </PrivateRoute>
           <Route path="/login-out">
             {!loggedIn ? (
               <LogIn login={login} />
