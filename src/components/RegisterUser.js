@@ -25,17 +25,14 @@ function CreateModal() {
 
   return (
     <>
-      <div
-        className="d-flex align-items-center justify-content-center"
-        style={{ height: "100vh" }}
-      >
+      <div>
         <Button variant="primary" onClick={handleShow}>
           Register user
         </Button>
       </div>
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Register you account here</Modal.Title>
+          <Modal.Title>Register your account here</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
