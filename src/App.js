@@ -36,7 +36,7 @@ function App() {
 function PrivateRoute ({children, ...rest}) {
   return (
     <Route {...rest} render={() => {
-      return loggedIn === true 
+      return loggedIn === true && user.roles === "admin,user"
       ? children 
       :<Redirect to ='/login-out' />
     }} />
