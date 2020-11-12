@@ -6,7 +6,7 @@ import Navbar from "./components/NavBar";
 import Home from "./pages/Home";
 import ApiCalls from "./pages/ApiCalls";
 import NoMatch from "./components/NoMatch";
-import ManageUsers from "./pages/ManageUsers";
+import SecurePage from "./pages/SecurePage";
 import facade from "./api/userFacade";
 import { LogIn, LoggedIn } from "./pages/Login";
 import jwt_decode from "jwt-decode";
@@ -47,8 +47,8 @@ function App() {
           <Route exact path="/api-calls">
             <ApiCalls />
           </Route>
-          <Route path="/manage-users">
-            <ManageUsers />
+          <Route path="/secure-page">
+            <SecurePage />
           </Route>
           <Route path="/login-out">
             {!loggedIn ? (
