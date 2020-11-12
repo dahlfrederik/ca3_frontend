@@ -1,7 +1,7 @@
 import apiFacade from "../api/apiFacade";
 import React, { useState, useEffect } from "react";
 
-export default function Jokes() {
+export default function Jokes({isLoggedIn}) {
   const [dataFromServer, setDataFromServer] = useState("Waiting...");
   const [dataFromServer1, setDataFromServer1] = useState("Waiting...");
 
@@ -27,6 +27,14 @@ export default function Jokes() {
           <button type="submit" className="btn btn-primary" onClick={handleClick}>Load quotes</button>
           <p className="text-center mt-2">{dataFromServer1.friendsChar}</p>
           <p className="text-center">{dataFromServer1.friendsQuote}</p>
+          {isLoggedIn && (
+            <div className="mt-5">
+              <p>*******************</p>
+              <h4>Only visable if logged in</h4>
+              <p>Add custom features for users</p>
+              <p>*******************</p>
+              </div>
+          )}
           <div className="col-3"></div>
         </div>
       </div>
