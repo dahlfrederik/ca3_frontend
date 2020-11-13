@@ -6,6 +6,7 @@
 	- npm install bootstrap
 	- npm install jwt-token
 	- npm install react-router-dom
+	- npm install react-bootstrap bootstrap 
 
 2. The util folder contains settings.js CHANGE THE URL to your own
 
