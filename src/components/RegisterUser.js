@@ -26,8 +26,9 @@ function CreateModal() {
   return (
     <>
       <div>
+        <p className="mt-2">Not a member yet? Register here:</p>
         <Button variant="primary" onClick={handleShow}>
-          Register user
+          Register
         </Button>
       </div>
       <Modal show={showModal} onHide={handleClose}>
